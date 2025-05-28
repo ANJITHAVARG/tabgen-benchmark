@@ -58,17 +58,17 @@ import re
 import pandas as pd
 from scipy.io import arff
 
-# === 1. Load ARFF File ===
+ === 1. Load ARFF File ===
 data, meta = arff.loadarff('adult.arff')
 df = pd.DataFrame(data)
 
-# === 2. Decode Byte Strings
+ === 2. Decode Byte Strings
 df = df.applymap(lambda x: x.decode('utf-8') if isinstance(x, bytes) else x)
 
-# === 3. Clean: remove \, ", and ' from strings
+=== 3. Clean: remove \, ", and ' from strings
 df = df.applymap(lambda x: re.sub(r'[\\\'\"]', '', x) if isinstance(x, str) else x)
 
-# === 4. Encode pre-discretized interval bins into 0-n integer labels ===
+ === 4. Encode pre-discretized interval bins into 0-n integer labels ===
 def extract_lower_bound(interval):
     match = re.match(r"\(?(-?[\d\.inf]+)-", interval)
     if match:
@@ -82,8 +82,8 @@ def encode_bins_numerically(series):
     bin_to_id = {bin_val: i for i, bin_val in enumerate(sorted_bins)}
     return series.map(bin_to_id), bin_to_id
 
-# === 5. Apply encoding ONLY to already binned columns ===
-# give the column names of binned columns in binned_cols
+ === 5. Apply encoding ONLY to already binned columns ===
+ give the column names of binned columns in binned_cols
 binned_cols = [ ]  
 for col in binned_cols:
     df[col], mapping = encode_bins_numerically(df[col])
@@ -91,6 +91,6 @@ for col in binned_cols:
     for k, v in mapping.items():
         print(f"{k} → {v}")
 
-# === 6. Save final CSV ===
+ === 6. Save final CSV ===
 df.to_csv("adult.csv", index=False)
 print("\nSaved cleaned dataset to 'adult.csv'")
