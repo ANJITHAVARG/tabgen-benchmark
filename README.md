@@ -54,6 +54,7 @@ python Scripts\great_train.py --dataset adult
 python Scripts\tstr_evaluation.py --synthetic_dir Synthetic/adult/great --real_test_dir Data/adult
 
 Code for processing arff files in datasets_Dm folder
+```
 import re
 import pandas as pd
 from scipy.io import arff
@@ -93,4 +94,4 @@ for col in binned_cols:
 
  === 6. Save final CSV ===
 df.to_csv("adult.csv", index=False)
-print("\nSaved cleaned dataset to 'adult.csv'")
+print("\nSaved cleaned dataset to 'adult.csv'") ```
