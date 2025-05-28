@@ -19,10 +19,11 @@ Code for converting arff to csv file and encode discrete numeric columns in it a
 
 ```python Scripts\split_dataset.py   --input_csv Discrete\adult_discrete.csv  --output_dir Data\adult –seed 42```
 
-Ganblr
+**Ganblr**
 For creating conda env for ganblr,
 
 ```conda env create -f env_tf.yml ```
+
 ```conda activate tabgen-tf```
 
 	Code for training ganblr model is given below. For example, 
@@ -36,9 +37,10 @@ For creating conda env for ganblr,
 For running other models, create a conda env to use pytorch
 
 ```conda env create -f env_torch.yml ```
+
 ```conda activate tabgen-torch```
 
-Ctabgan-plus
+**Ctabgan-plus**
 
 	Code for training ctabganplus model is given below. For example,
 
@@ -48,7 +50,7 @@ Ctabgan-plus
 
 ```python Scripts\tstr_evaluation.py --synthetic_dir Synthetic/adult/ctabgan_plus --real_test_dir Data/adult```
 
-tabddpm
+**tabddpm**
 
 	Code for training tabddpm model is given below. For example, 
 
@@ -58,7 +60,7 @@ tabddpm
 
 ```python Scripts\tstr_evaluation.py --synthetic_dir Synthetic/adult/tabddpm --real_test_dir Data/adult```
 
-tabsyn
+**tabsyn**
 
 	we need to create npy files for running tabsyn
 
@@ -67,13 +69,14 @@ tabsyn
 	Code for training tabsyn model is given below. For example, 
 
 ```python tabsyn\vae\main.py  --dataname adult --gpu 0```
+
 ```python Scripts\tabsyn_train.py --dataset adult```
 
 	For TSTR evaluation
 
 ```python Scripts\tstr_evaluation.py --synthetic_dir Synthetic/adult/tabsyn --real_test_dir Data/adult```
 
-Great 
+**Great**
 
 	Code for training great model is given below. For example, 
 
